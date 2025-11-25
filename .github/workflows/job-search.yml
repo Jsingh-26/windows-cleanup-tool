@@ -1,0 +1,22 @@
+name: LinkedIn Job Search Automation
+
+on:
+  schedule:
+    # Runs every 2 days at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 */2 * *'
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  job-search:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute Job Search Recipe
+        run: |
+          curl -X POST https://backend.composio.dev/api/v3/recipe/rcp_3IGaUy2FvQMw/execute \
+            -H "Content-Type: application/json" \
+            -H "X-API-Key: ${{ secrets.COMPOSIO_API_KEY }}" \
+            -d '{}'
+
+      - name: Log completion
+        run: echo "Job search completed at $(date)"
