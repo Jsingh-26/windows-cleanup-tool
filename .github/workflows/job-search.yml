@@ -2,8 +2,8 @@ name: LinkedIn Job Search Automation
 
 on:
   schedule:
-    # Runs every 2 days at 9:00 AM IST (3:30 AM UTC)
-    - cron: '30 3 */2 * *'
+    # Runs daily at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * *'
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
